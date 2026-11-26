@@ -1,0 +1,136 @@
+### ====================================================================
+### 1. TESTS STUDENTS (GET, POST, PUT, DELETE)
+### ====================================================================
+
+### 1.1 Afficher tous les étudiants
+GET http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/students
+
+### 1.2 Afficher un étudiant par ID
+GET http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/students/1
+
+### 1.3 Ajouter un étudiant
+POST http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/students
+Content-Type: application/json
+
+{
+  "firstNameStudent": "Taha",
+  "lastNameStudent": "Tazi",
+  "dateBirthStudent": "2004-12-23"
+}
+
+### 1.4 Modifier un étudiant
+PUT http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/students/1
+Content-Type: application/json
+
+{
+  "firstNameStudent": "Malika",
+  "lastNameStudent": "Idrissi",
+  "dateBirthStudent": "2004-12-23"
+}
+
+### 1.5 Supprimer un étudiant (adaptez l'ID si besoin)
+DELETE http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/students/4
+
+
+### ====================================================================
+### 2. TESTS ENSEIGNANTS (GET, POST, PUT, DELETE)
+### ====================================================================
+
+### 2.1 Afficher tous les enseignants
+GET http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/enseignants
+
+### 2.2 Afficher un enseignant par ID
+GET http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/enseignants/1
+
+### 2.3 Ajouter un enseignant
+POST http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/enseignants
+Content-Type: application/json
+
+{
+  "nomEnseignant": "El Amrani",
+  "prenomEnseignant": "Youssef",
+  "specialite": "Architecture JEE",
+  "email": "y.elamrani@ecole.ma"
+}
+
+### 2.4 Modifier l'enseignant ID 3
+PUT http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/enseignants/3
+Content-Type: application/json
+
+{
+  "nomEnseignant": "El Amrani",
+  "prenomEnseignant": "Youssef",
+  "specialite": "Microservices & REST",
+  "email": "youssef.amrani@ecole.ma"
+}
+
+### 2.5 Supprimer l'enseignant ID 3
+DELETE http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/enseignants/3
+
+
+### ====================================================================
+### 3. TESTS MATIERES (GET, POST, PUT, DELETE)
+### ====================================================================
+
+### 3.1 Afficher toutes les matières
+GET http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/matieres
+
+### 3.2 Afficher les matières d'un enseignant (ID 1)
+GET http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/matieres/enseignant/1
+
+### 3.3 Ajouter une matière (liée à l'enseignant ID 1)
+POST http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/matieres
+Content-Type: application/json
+
+{
+  "nomMatiere": "Sécurité des API",
+  "coefficient": 2.5,
+  "idEnseignant": 1
+}
+
+### 3.4 Modifier la matière ID 3
+PUT http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/matieres/3
+Content-Type: application/json
+
+{
+  "nomMatiere": "Sécurité des Web Services",
+  "coefficient": 3.0,
+  "idEnseignant": 2
+}
+
+### 3.5 Supprimer la matière ID 3
+DELETE http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/matieres/3
+
+
+### ====================================================================
+### 4. TESTS NOTES (GET, POST, PUT, DELETE)
+### ====================================================================
+
+### 4.1 Afficher toutes les notes
+GET http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/notes
+
+### 4.2 Afficher les notes de l'étudiant ID 1
+GET http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/notes/student/1
+
+### 4.3 Ajouter une note (étudiant ID 2, matière ID 2)
+POST http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/notes
+Content-Type: application/json
+
+{
+  "valeur": 17.5,
+  "idStudent": 2,
+  "idMatiere": 2
+}
+
+### 4.4 Modifier la note ID 4
+PUT http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/notes/4
+Content-Type: application/json
+
+{
+  "valeur": 19.0,
+  "idStudent": 2,
+  "idMatiere": 2
+}
+
+### 4.5 Supprimer la note ID 4
+DELETE http://localhost:8080/WS-j2ee-1.0-SNAPSHOT/api/notes/4
